@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/5/13 11:05:17                           */
+/* Created on:     2020/5/13 20:40:14                           */
 /*==============================================================*/
 
 
@@ -8,9 +8,9 @@ drop table if exists article;
 
 drop table if exists blog;
 
-drop table if exists comment;
+drop table if exists commentx;
 
-drop table if exists group;
+drop table if exists groupx;
 
 drop table if exists map_user_article;
 
@@ -24,7 +24,7 @@ drop table if exists plate;
 
 drop table if exists post;
 
-drop table if exists user;
+drop table if exists userx;
 
 /*==============================================================*/
 /* Table: article                                               */
@@ -57,12 +57,12 @@ create table blog
    primary key (blog_id)
 );
 
-alter table blog comment '²©¿Í';
+alter table blog comment 'åšå®¢';
 
 /*==============================================================*/
-/* Table: comment                                               */
+/* Table: commentx                                              */
 /*==============================================================*/
-create table comment
+create table commentx
 (
    comment_id           int not null auto_increment,
    object_id            int,
@@ -74,12 +74,12 @@ create table comment
    primary key (comment_id)
 );
 
-alter table comment comment '»Ø¸´/ÆÀÂÛ';
+alter table commentx comment 'å›å¤/è¯„è®º';
 
 /*==============================================================*/
-/* Table: group                                                 */
+/* Table: groupx                                                */
 /*==============================================================*/
-create table group
+create table groupx
 (
    group_id             int not null auto_increment,
    group_name           varchar(90),
@@ -89,7 +89,7 @@ create table group
    primary key (group_id)
 );
 
-alter table group comment 'Èº×é';
+alter table groupx comment 'ç¾¤ç»„';
 
 /*==============================================================*/
 /* Table: map_user_article                                      */
@@ -101,8 +101,8 @@ create table map_user_article
    primary key (user_id, article_id)
 );
 
-alter table map_user_article comment 'Ó³Éä_ÓÃ»§_ÎÄÕÂ
-ÓÃ»§ÊÕ²ØµÄÎÄÕÂ';
+alter table map_user_article comment 'æ˜ å°„_ç”¨æˆ·_æ–‡ç« 
+ç”¨æˆ·æ”¶è—çš„æ–‡ç« ';
 
 /*==============================================================*/
 /* Table: map_user_blog                                         */
@@ -114,8 +114,8 @@ create table map_user_blog
    primary key (user_id, blog_id)
 );
 
-alter table map_user_blog comment 'Ó³Éä_ÓÃ»§_²©¿Í
-ÓÃ»§ÊÕ²ØµÄ²©¿Í';
+alter table map_user_blog comment 'æ˜ å°„_ç”¨æˆ·_åšå®¢
+ç”¨æˆ·æ”¶è—çš„åšå®¢';
 
 /*==============================================================*/
 /* Table: map_user_group                                        */
@@ -127,8 +127,8 @@ create table map_user_group
    primary key (user_id, group_id)
 );
 
-alter table map_user_group comment 'Ó³Éä_ÓÃ»§_Èº×é
-ÓÃ»§ÓëÈº×é¼äµÄ¶à¶Ô¶à';
+alter table map_user_group comment 'æ˜ å°„_ç”¨æˆ·_ç¾¤ç»„
+ç”¨æˆ·ä¸ç¾¤ç»„é—´çš„å¤šå¯¹å¤š';
 
 /*==============================================================*/
 /* Table: map_user_post                                         */
@@ -140,8 +140,8 @@ create table map_user_post
    primary key (post_id, user_id)
 );
 
-alter table map_user_post comment 'Ó³Éä_ÓÃ»§_Ìû×Ó
-ÓÃ»§ÊÕ²ØµÄÌû×Ó';
+alter table map_user_post comment 'æ˜ å°„_ç”¨æˆ·_å¸–å­
+ç”¨æˆ·æ”¶è—çš„å¸–å­';
 
 /*==============================================================*/
 /* Table: plate                                                 */
@@ -156,7 +156,7 @@ create table plate
    primary key (plate_id)
 );
 
-alter table plate comment '°å¿é';
+alter table plate comment 'æ¿å—';
 
 /*==============================================================*/
 /* Table: post                                                  */
@@ -174,23 +174,25 @@ create table post
    primary key (post_id)
 );
 
-alter table post comment 'Ìû×Ó';
+alter table post comment 'å¸–å­';
 
 /*==============================================================*/
-/* Table: user                                                  */
+/* Table: userx                                                 */
 /*==============================================================*/
-create table user
+create table userx
 (
    user_id              varchar(30) not null,
    user_name            varchar(60),
    user_pwd             varchar(16),
    is_admin             bool,
    user_avatar_url      varchar(100),
-   register_date        datetime,
    user_email           varchar(30),
    phone_number         varchar(20),
+   user_gender          varchar(1),
+   user_signature       varchar(90),
+   register_date        datetime,
    primary key (user_id)
 );
 
-alter table user comment 'ÓÃ»§';
+alter table userx comment 'ç”¨æˆ·';
 
