@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/5/13 20:40:14                           */
+/* Created on:     2020/5/14 14:05:32                           */
 /*==============================================================*/
 
 
@@ -17,6 +17,8 @@ drop table if exists map_user_article;
 drop table if exists map_user_blog;
 
 drop table if exists map_user_group;
+
+drop table if exists map_user_plate;
 
 drop table if exists map_user_post;
 
@@ -124,11 +126,25 @@ create table map_user_group
 (
    user_id              varchar(30) not null,
    group_id             int not null,
+   is_admin             bool,
    primary key (user_id, group_id)
 );
 
 alter table map_user_group comment '映射_用户_群组
-用户与群组间的多对多';
+用户与群组间的多对多关系, 分为普通成员和管理员';
+
+/*==============================================================*/
+/* Table: map_user_plate                                        */
+/*==============================================================*/
+create table map_user_plate
+(
+   user_id              varchar(30) not null,
+   plate_id             int not null,
+   primary key (user_id, plate_id)
+);
+
+alter table map_user_plate comment '映射_用户_板块
+板块没有普通成员, 但是板块可以设置管理员';
 
 /*==============================================================*/
 /* Table: map_user_post                                         */
