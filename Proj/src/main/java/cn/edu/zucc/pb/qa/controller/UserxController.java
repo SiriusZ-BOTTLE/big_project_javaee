@@ -21,7 +21,7 @@ public class UserxController {
         this.repository = repository;
     }
 
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     RequestResult login(@RequestBody Login login)
     {
         RequestResult res=new RequestResult();
@@ -47,6 +47,15 @@ public class UserxController {
         }
     }
 
+    @PostMapping("/user/register")
+    RequestResult register(@RequestBody UserxEntity user)
+    {
+        RequestResult res=new RequestResult();
+        UserxEntity userxEntity=repository.save(user);
+        res.setSuccess(true);
+        res.setObject(userxEntity);
+        return res;
+    }
 
 }
 
