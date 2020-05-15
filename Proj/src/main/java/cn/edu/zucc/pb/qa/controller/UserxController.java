@@ -28,14 +28,14 @@ public class UserxController {
         UserxEntity user=repository.findByUserId(login.getUserId());//获取对象
         if(user==null)//没找到
         {
-            res.setMsg("<error> user not found");//用户未找到
+            res.setMsg("用户ID或密码错误");//用户未找到
             return res;
         }
         else
         {
             if(!login.getUserPwd().equals(user.getUserPwd()))
             {
-                res.setMsg("<error> user pwd mismatching");//密码不匹配
+                res.setMsg("用户ID或密码错误");//密码不匹配
                 return res;
             }
             else
@@ -51,6 +51,12 @@ public class UserxController {
     RequestResult register(@RequestBody UserxEntity user)
     {
         RequestResult res=new RequestResult();
+
+        if(repository.findByUserId(user.getUserId())!=null)
+        {
+            res.setSuccess(false);
+            res.setMsg("用户ID已经被使用");
+        }
         UserxEntity userxEntity=repository.save(user);
         res.setSuccess(true);
         res.setObject(userxEntity);

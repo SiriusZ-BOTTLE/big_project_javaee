@@ -4,9 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-public class MapUserGroupEntityPK implements Serializable {
+public class MapUserPlateCollectionEntityPK implements Serializable {
     private String userId;
-    private int groupId;
+    private int plateId;
 
     @Column(name = "user_id")
     @Id
@@ -18,14 +18,14 @@ public class MapUserGroupEntityPK implements Serializable {
         this.userId = userId;
     }
 
-    @Column(name = "group_id")
+    @Column(name = "plate_id")
     @Id
-    public int getGroupId() {
-        return groupId;
+    public int getPlateId() {
+        return plateId;
     }
 
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
+    public void setPlateId(int plateId) {
+        this.plateId = plateId;
     }
 
     @Override
@@ -33,9 +33,9 @@ public class MapUserGroupEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MapUserGroupEntityPK that = (MapUserGroupEntityPK) o;
+        MapUserPlateCollectionEntityPK that = (MapUserPlateCollectionEntityPK) o;
 
-        if (groupId != that.groupId) return false;
+        if (plateId != that.plateId) return false;
         if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
 
         return true;
@@ -44,7 +44,7 @@ public class MapUserGroupEntityPK implements Serializable {
     @Override
     public int hashCode() {
         int result = userId != null ? userId.hashCode() : 0;
-        result = 31 * result + groupId;
+        result = 31 * result + plateId;
         return result;
     }
 }

@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-public class MapUserBlogEntityPK implements Serializable {
+public class MapUserBlogCollectionEntityPK implements Serializable {
     private String userId;
     private int blogId;
 
@@ -33,7 +33,7 @@ public class MapUserBlogEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MapUserBlogEntityPK that = (MapUserBlogEntityPK) o;
+        MapUserBlogCollectionEntityPK that = (MapUserBlogCollectionEntityPK) o;
 
         if (blogId != that.blogId) return false;
         if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;

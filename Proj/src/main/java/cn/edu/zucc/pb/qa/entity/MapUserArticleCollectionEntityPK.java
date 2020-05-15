@@ -1,16 +1,15 @@
 package cn.edu.zucc.pb.qa.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "map_user_blog", schema = "db_big_pro_javaee", catalog = "")
-@IdClass(MapUserBlogEntityPK.class)
-public class MapUserBlogEntity {
+public class MapUserArticleCollectionEntityPK implements Serializable {
     private String userId;
-    private int blogId;
+    private int articleId;
 
-    @Id
     @Column(name = "user_id")
+    @Id
     public String getUserId() {
         return userId;
     }
@@ -19,14 +18,14 @@ public class MapUserBlogEntity {
         this.userId = userId;
     }
 
+    @Column(name = "article_id")
     @Id
-    @Column(name = "blog_id")
-    public int getBlogId() {
-        return blogId;
+    public int getArticleId() {
+        return articleId;
     }
 
-    public void setBlogId(int blogId) {
-        this.blogId = blogId;
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
     }
 
     @Override
@@ -34,9 +33,9 @@ public class MapUserBlogEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MapUserBlogEntity that = (MapUserBlogEntity) o;
+        MapUserArticleCollectionEntityPK that = (MapUserArticleCollectionEntityPK) o;
 
-        if (blogId != that.blogId) return false;
+        if (articleId != that.articleId) return false;
         if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
 
         return true;
@@ -45,7 +44,7 @@ public class MapUserBlogEntity {
     @Override
     public int hashCode() {
         int result = userId != null ? userId.hashCode() : 0;
-        result = 31 * result + blogId;
+        result = 31 * result + articleId;
         return result;
     }
 }

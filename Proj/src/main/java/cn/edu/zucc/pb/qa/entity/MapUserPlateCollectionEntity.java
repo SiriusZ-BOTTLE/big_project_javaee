@@ -1,15 +1,16 @@
 package cn.edu.zucc.pb.qa.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.*;
 
-public class MapUserArticleEntityPK implements Serializable {
+@Entity
+@Table(name = "map_user_plate_collection", schema = "db_big_pro_javaee", catalog = "")
+@IdClass(MapUserPlateCollectionEntityPK.class)
+public class MapUserPlateCollectionEntity {
     private String userId;
-    private int articleId;
+    private int plateId;
 
-    @Column(name = "user_id")
     @Id
+    @Column(name = "user_id")
     public String getUserId() {
         return userId;
     }
@@ -18,14 +19,14 @@ public class MapUserArticleEntityPK implements Serializable {
         this.userId = userId;
     }
 
-    @Column(name = "article_id")
     @Id
-    public int getArticleId() {
-        return articleId;
+    @Column(name = "plate_id")
+    public int getPlateId() {
+        return plateId;
     }
 
-    public void setArticleId(int articleId) {
-        this.articleId = articleId;
+    public void setPlateId(int plateId) {
+        this.plateId = plateId;
     }
 
     @Override
@@ -33,9 +34,9 @@ public class MapUserArticleEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MapUserArticleEntityPK that = (MapUserArticleEntityPK) o;
+        MapUserPlateCollectionEntity that = (MapUserPlateCollectionEntity) o;
 
-        if (articleId != that.articleId) return false;
+        if (plateId != that.plateId) return false;
         if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
 
         return true;
@@ -44,7 +45,7 @@ public class MapUserArticleEntityPK implements Serializable {
     @Override
     public int hashCode() {
         int result = userId != null ? userId.hashCode() : 0;
-        result = 31 * result + articleId;
+        result = 31 * result + plateId;
         return result;
     }
 }

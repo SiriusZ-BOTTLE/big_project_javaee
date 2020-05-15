@@ -1,15 +1,16 @@
 package cn.edu.zucc.pb.qa.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.*;
 
-public class MapUserPostEntityPK implements Serializable {
+@Entity
+@Table(name = "map_user_post_collection", schema = "db_big_pro_javaee", catalog = "")
+@IdClass(MapUserPostCollectionEntityPK.class)
+public class MapUserPostCollectionEntity {
     private String userId;
     private int postId;
 
-    @Column(name = "user_id")
     @Id
+    @Column(name = "user_id")
     public String getUserId() {
         return userId;
     }
@@ -18,8 +19,8 @@ public class MapUserPostEntityPK implements Serializable {
         this.userId = userId;
     }
 
-    @Column(name = "post_id")
     @Id
+    @Column(name = "post_id")
     public int getPostId() {
         return postId;
     }
@@ -33,7 +34,7 @@ public class MapUserPostEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MapUserPostEntityPK that = (MapUserPostEntityPK) o;
+        MapUserPostCollectionEntity that = (MapUserPostCollectionEntity) o;
 
         if (postId != that.postId) return false;
         if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
