@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/5/15 8:20:54                            */
+/* Created on:     2020/5/15 9:19:23                            */
 /*==============================================================*/
 
 
@@ -25,6 +25,8 @@ drop table if exists map_user_plate_collection;
 drop table if exists map_user_post_collection;
 
 drop table if exists map_user_user_following;
+
+drop table if exists message;
 
 drop table if exists plate;
 
@@ -188,6 +190,24 @@ create table map_user_user_following
 
 alter table map_user_user_following comment '映射_用户_用户_关注
 用户之间可以单向关注, 当两个用户之间存在两个相反的单向关注时, 称他们互相关注';
+
+/*==============================================================*/
+/* Table: message                                               */
+/*==============================================================*/
+create table message
+(
+   message_id           int not null,
+   user_id              varchar(30),
+   target_id            int,
+   message_title        varchar(90),
+   message_type         varchar(5),
+   message_content      varchar(300),
+   is_read              bool,
+   primary key (message_id)
+);
+
+alter table message comment '消息
+用户可以收到系统发出的消息, 当有新的回复或者新的评论时, 系统会发出消息给相关用户';
 
 /*==============================================================*/
 /* Table: plate                                                 */
