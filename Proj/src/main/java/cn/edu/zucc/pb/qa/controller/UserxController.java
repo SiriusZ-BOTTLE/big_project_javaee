@@ -3,6 +3,8 @@ package cn.edu.zucc.pb.qa.controller;
 import cn.edu.zucc.pb.qa.entity.UserxEntity;
 import cn.edu.zucc.pb.qa.formbean.Login;
 import cn.edu.zucc.pb.qa.formbean.RequestResult;
+import cn.edu.zucc.pb.qa.formbean.UserxStatistics;
+import cn.edu.zucc.pb.qa.repositories.MapUserUserFollowingRepository;
 import cn.edu.zucc.pb.qa.repositories.UserxRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +16,11 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class UserxController {
 
-    private final UserxRepository repository;
+    public static UserxRepository repository;
 
     //构造函数
     public UserxController(UserxRepository repository) {
-        this.repository = repository;
+        UserxController.repository = repository;
     }
 
     @PostMapping("/user/login")
@@ -62,6 +64,23 @@ public class UserxController {
         res.setObject(userxEntity);
         return res;
     }
+
+    @PostMapping("/user/get_statistics")
+    RequestResult getUserStatistics(@RequestParam String userId){
+        RequestResult res=new RequestResult();
+        UserxStatistics stat=new UserxStatistics();
+
+        stat.setPostNumber(ArticleController.repository.countByCreatorId(userId));
+        stat.setFollowNumber(MapUserUserFollowingController.repository.countByUserId0(userId));
+        stat.setFollowedNumber(MapUserUserFollowingController.repository.countByUserId1(userId));
+
+        res.setSuccess(true);
+        res.setObject(stat);
+
+        return res;
+    }
+
+
 
 }
 

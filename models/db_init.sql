@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/5/15 9:19:23                            */
+/* Created on:     2020/5/19 13:18:57                           */
 /*==============================================================*/
 
 
@@ -219,6 +219,7 @@ create table plate
    owner_id             varchar(30),
    plate_description    varchar(600),
    create_date          datetime,
+   activated            bool,
    primary key (plate_id)
 );
 
