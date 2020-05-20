@@ -12,8 +12,10 @@ public class PlateEntity {
     private String plateName;
     private String ownerId;
     private String plateDescription;
+    private String plateCoverUrl;
     private Timestamp createDate;
     private Byte activated;
+
 
     @Id
     @Column(name = "plate_id")
@@ -103,5 +105,15 @@ public class PlateEntity {
 
     public void setActivated(Byte activated) {
         this.activated = activated;
+    }
+
+    @Basic
+    @Column(name = "plate_cover_url")
+    public String getPlateCoverUrl() {
+        return plateCoverUrl;
+    }
+
+    public void setPlateCoverUrl(String plateCoverUrl) {
+        this.plateCoverUrl = plateCoverUrl;
     }
 }
