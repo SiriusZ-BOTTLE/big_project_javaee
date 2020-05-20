@@ -13,6 +13,7 @@ public class PlateEntity {
     private String ownerId;
     private String plateDescription;
     private Timestamp createDate;
+    private Byte activated;
 
     @Id
     @Column(name = "plate_id")
@@ -92,5 +93,15 @@ public class PlateEntity {
         result = 31 * result + (plateDescription != null ? plateDescription.hashCode() : 0);
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "activated")
+    public Byte getActivated() {
+        return activated;
+    }
+
+    public void setActivated(Byte activated) {
+        this.activated = activated;
     }
 }
