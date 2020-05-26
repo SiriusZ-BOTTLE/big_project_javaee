@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/5/20 10:47:02                           */
+/* Created on:     2020/5/26 10:01:04                           */
 /*==============================================================*/
 
 
@@ -93,6 +93,7 @@ create table groupx
    group_name           varchar(90),
    owner_id             varchar(30),
    group_description    varchar(600),
+   group_cover_url      varchar(100),
    create_date          datetime,
    primary key (group_id)
 );
@@ -239,6 +240,7 @@ create table post
    post_content         varchar(1500),
    create_date          datetime,
    update_date          datetime,
+   post_images_url      varchar(200),
    primary key (post_id)
 );
 

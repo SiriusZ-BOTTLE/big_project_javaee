@@ -57,6 +57,7 @@ public class UserxController {
         {
             res.setSuccess(false);
             res.setMsg("用户ID已经被使用");
+            return res;
         }
         UserxEntity userxEntity=repository.save(user);
         res.setSuccess(true);
