@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/5/26 10:01:04                           */
+/* Created on:     2020/5/26 18:14:10                           */
 /*==============================================================*/
 
 
@@ -17,6 +17,8 @@ drop table if exists map_user_article_collection;
 drop table if exists map_user_blog_collection;
 
 drop table if exists map_user_group_member;
+
+drop table if exists map_user_object_liking;
 
 drop table if exists map_user_plate_admin;
 
@@ -141,6 +143,20 @@ alter table map_user_group_member comment '映射_用户_群组_成员
 用户与群组间的多对多关系, 分为普通成员和管理员';
 
 /*==============================================================*/
+/* Table: map_user_object_liking                                */
+/*==============================================================*/
+create table map_user_object_liking
+(
+   object_id            int not null,
+   user_id              varchar(30) not null,
+   type                 varchar(10),
+   primary key (object_id, user_id)
+);
+
+alter table map_user_object_liking comment '映射_用户_对象_点赞
+用户对博客, 帖子, 文章等基础对象的点赞';
+
+/*==============================================================*/
 /* Table: map_user_plate_admin                                  */
 /*==============================================================*/
 create table map_user_plate_admin
@@ -238,9 +254,9 @@ create table post
    group_id             int,
    post_title           varchar(150),
    post_content         varchar(1500),
+   post_images_url      varchar(200),
    create_date          datetime,
    update_date          datetime,
-   post_images_url      varchar(200),
    primary key (post_id)
 );
 

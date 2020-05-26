@@ -15,8 +15,10 @@ public class PostEntity {
     private Integer groupId;
     private String postTitle;
     private String postContent;
+    private String postImagesUrl;
     private Timestamp createDate;
     private Timestamp updateDate;
+
 
     @Id
     @Column(name = "post_id")
@@ -133,5 +135,15 @@ public class PostEntity {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "post_images_url")
+    public String getPostImagesUrl() {
+        return postImagesUrl;
+    }
+
+    public void setPostImagesUrl(String postImagesUrl) {
+        this.postImagesUrl = postImagesUrl;
     }
 }
