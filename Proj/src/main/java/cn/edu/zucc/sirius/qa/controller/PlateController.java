@@ -3,10 +3,7 @@ package cn.edu.zucc.sirius.qa.controller;
 import cn.edu.zucc.sirius.qa.entity.PlateEntity;
 import cn.edu.zucc.sirius.qa.formbean.RequestResult;
 import cn.edu.zucc.sirius.qa.repositories.PlateRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -34,11 +31,23 @@ public class PlateController {
     }
 
     @PostMapping("/plate/list")
-    public RequestResult create()
+    public RequestResult list()
     {
         RequestResult res=new RequestResult();
         Byte one=new Byte("1");
         res.setObject(plateRepository.findAllByActivated(one));
+        res.setSuccess(true);
+        return res;
+    }
+
+    @PostMapping("/plate/list_user_collection")
+    public RequestResult list_user_collection(@RequestParam String userId)
+    {
+        RequestResult res=new RequestResult();
+
+//        MapUserPlateCollectionController.mapUserPlateCollectionRepository.find
+
+        res.setObject(plateRepository.findUserSubscription(userId));
         res.setSuccess(true);
         return res;
     }
