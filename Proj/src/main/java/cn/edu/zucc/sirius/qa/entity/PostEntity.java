@@ -1,5 +1,6 @@
 package cn.edu.zucc.sirius.qa.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -16,7 +17,9 @@ public class PostEntity {
     private String postTitle;
     private String postContent;
     private String postImagesUrl;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
     private Timestamp createDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
     private Timestamp updateDate;
 
 

@@ -20,12 +20,30 @@ public class PostController {
         PostController.postRepository=postRepository;
     }
 
+    /**
+     * 创建帖子接口
+     * @param postEntity 目标
+     * @return
+     */
     @PostMapping("/post/create")
     public RequestResult create(@RequestBody PostEntity postEntity)
     {
         RequestResult res=new RequestResult();
 
         res.setObject(postRepository.save(postEntity));
+        res.setSuccess(true);
+        return res;
+    }
+
+    /**
+     * 列出近期帖子
+     * @return
+     */
+    @PostMapping("/post/list_recent")
+    public RequestResult listRecent(){
+        RequestResult res=new RequestResult();
+
+        res.setObject(postRepository.findAll());
         res.setSuccess(true);
         return res;
     }

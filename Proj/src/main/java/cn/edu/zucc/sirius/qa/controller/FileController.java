@@ -26,10 +26,12 @@ public class FileController {
         RequestResult res = new RequestResult();
         if (file == null) {
             res.setMsg("文件不能为空");
+            res.setSuccess(false);
             return res;
         }
-        if (file.getSize() > 1024 * 1024 * 1) {
-            res.setMsg("文件不得超过1MB");
+        if (file.getSize() > 1024 * 1024 * 10) {
+            res.setMsg("文件不得超过10MB");
+            res.setSuccess(false);
             return res;
         }
         //获取文件后缀

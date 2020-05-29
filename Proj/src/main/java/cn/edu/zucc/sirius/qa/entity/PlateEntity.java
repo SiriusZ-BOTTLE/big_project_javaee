@@ -1,5 +1,6 @@
 package cn.edu.zucc.sirius.qa.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ public class PlateEntity {
     private String ownerId;
     private String plateDescription;
     private String plateCoverUrl;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
     private Timestamp createDate;
     private Byte activated;
 

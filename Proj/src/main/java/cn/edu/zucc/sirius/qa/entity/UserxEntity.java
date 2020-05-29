@@ -1,5 +1,6 @@
 package cn.edu.zucc.sirius.qa.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class UserxEntity {
     private String phoneNumber;
     private String userGender;
     private String userSignature;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
     private Timestamp registerDate;
 
     @Id

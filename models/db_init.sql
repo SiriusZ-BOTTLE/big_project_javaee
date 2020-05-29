@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/5/26 18:14:10                           */
+/* Created on:     2020/5/29 18:45:17                           */
 /*==============================================================*/
 
 
@@ -11,6 +11,8 @@ drop table if exists blog;
 drop table if exists commentx;
 
 drop table if exists groupx;
+
+drop table if exists image;
 
 drop table if exists map_user_article_collection;
 
@@ -101,6 +103,20 @@ create table groupx
 );
 
 alter table groupx comment '群组';
+
+/*==============================================================*/
+/* Table: image                                                 */
+/*==============================================================*/
+create table image
+(
+   image_id             int not null,
+   object_id            int,
+   image_type           varchar(10),
+   image_url            varchar(100),
+   primary key (image_id)
+);
+
+alter table image comment '图片实体';
 
 /*==============================================================*/
 /* Table: map_user_article_collection                           */

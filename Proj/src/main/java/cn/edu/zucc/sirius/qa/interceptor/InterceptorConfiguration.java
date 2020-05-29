@@ -16,7 +16,7 @@ public class InterceptorConfiguration extends WebMvcConfigurationSupport {
 //    @Autowired
 //    private JwtInterceptor jwtInterceptor;
 //
-//    @Override
+//    @Override\[
 //    protected void addInterceptors(InterceptorRegistry registry) {
 //        registry.addInterceptor(jwtInterceptor)
 //                .addPathPatterns("/**")
