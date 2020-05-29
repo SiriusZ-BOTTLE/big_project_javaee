@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/5/29 18:45:17                           */
+/* Created on:     2020/5/29 20:58:43                           */
 /*==============================================================*/
 
 
@@ -109,7 +109,7 @@ alter table groupx comment '群组';
 /*==============================================================*/
 create table image
 (
-   image_id             int not null,
+   image_id             int not null auto_increment,
    object_id            int,
    image_type           varchar(10),
    image_url            varchar(100),

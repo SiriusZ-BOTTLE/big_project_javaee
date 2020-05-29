@@ -4836,14 +4836,15 @@ Shadow=0
 </c:Object>
 </o:ExtendedDependencySymbol>
 <o:ExtendedDependencySymbol Id="o65">
-<a:ModificationDate>1590749108</a:ModificationDate>
-<a:Rect>((-6219,923), (20029,17124))</a:Rect>
-<a:ListOfPoints>((19629,1323),(-5819,1323),(-5819,16424),(-4125,16424))</a:ListOfPoints>
+<a:ModificationDate>1590757089</a:ModificationDate>
+<a:Rect>((-6219,697), (20254,18588))</a:Rect>
+<a:ListOfPoints>((19854,1097),(-5819,1097),(-5819,17888),(-4125,17888))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontList>CENTER 0 新宋体,8,N</a:FontList>
+<a:AutomaticRoutingState>1</a:AutomaticRoutingState>
 <c:SourceSymbol>
 <o:TableSymbol Ref="o66"/>
 </c:SourceSymbol>
@@ -5970,11 +5971,13 @@ DAT 1590749105</a:History>
 <a:Code>image_id</a:Code>
 <a:CreationDate>1590749105</a:CreationDate>
 <a:Creator>ASUS</a:Creator>
-<a:ModificationDate>1590749108</a:ModificationDate>
+<a:ModificationDate>1590757117</a:ModificationDate>
 <a:Modifier>ASUS</a:Modifier>
 <a:History>ORG {008130BF-C381-441C-9A16-4E8AFCE0B75C}
-DAT 1590749105</a:History>
+DAT 1590749105
+ATT IDNT</a:History>
 <a:DataType>int</a:DataType>
+<a:Identity>1</a:Identity>
 <a:Column.Mandatory>1</a:Column.Mandatory>
 </o:Column>
 <o:Column Id="o134">

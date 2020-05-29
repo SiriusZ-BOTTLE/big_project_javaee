@@ -43,7 +43,8 @@ public class PostController {
     public RequestResult listRecent(){
         RequestResult res=new RequestResult();
 
-        res.setObject(postRepository.findAll());
+//        res.setObject(postRepository.findAll());
+        res.setObject(postRepository.findAllByOrderByUpdateDateDesc());
         res.setSuccess(true);
         return res;
     }
