@@ -2,6 +2,7 @@ package cn.edu.zucc.sirius.qa.controller;
 
 import cn.edu.zucc.sirius.qa.entity.CommentxEntity;
 import cn.edu.zucc.sirius.qa.entity.ImageEntity;
+import cn.edu.zucc.sirius.qa.entity.MapUserPostCollectionEntity;
 import cn.edu.zucc.sirius.qa.entity.PostEntity;
 import cn.edu.zucc.sirius.qa.formbean.PageQueryRequest;
 import cn.edu.zucc.sirius.qa.formbean.RequestResult;
@@ -107,6 +108,11 @@ public class PostController {
         return res;
     }
 
+    /**
+     * 删除帖子
+     * @param postId
+     * @return
+     */
     @PostMapping("/post/delete")
     public RequestResult delete(@RequestParam Integer postId)
     {
@@ -121,6 +127,10 @@ public class PostController {
         //删除全部评论
         List<CommentxEntity> cl=CommentController.commentRepository.findAllByObjectIdAndCommentTypeOrderByCreateDateAsc(postId,"post");
         CommentController.commentRepository.deleteAll(cl);
+
+        //删除对该帖子的收藏信息
+        List<MapUserPostCollectionEntity> ml=MapUserPostCollectionController.mapUserPostCollectionRepository.findAllByPostId(postId);
+        MapUserPostCollectionController.mapUserPostCollectionRepository.deleteAll(ml);
 
         postRepository.deleteById(postId);
         res.setSuccess(true);

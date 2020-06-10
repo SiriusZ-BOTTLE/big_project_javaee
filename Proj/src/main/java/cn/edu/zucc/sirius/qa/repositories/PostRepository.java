@@ -69,6 +69,11 @@ public interface PostRepository extends JpaRepository<PostEntity, Integer> {
     )
     Page<PostEntity> findAllByContentMatch(@Param("content") String content,Pageable pageable);
 
-
+    /**
+     * 获取用户发帖数
+     * @param creatorId 用户id
+     * @return 数字
+     */
+    Integer countByCreatorId(String creatorId);
 
 }

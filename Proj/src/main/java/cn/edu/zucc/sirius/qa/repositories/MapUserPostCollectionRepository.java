@@ -11,4 +11,6 @@ public interface MapUserPostCollectionRepository extends JpaRepository<MapUserPo
 
     List<MapUserPostCollectionEntity> findAllByUserId(String userId);
 
+    List<MapUserPostCollectionEntity> findAllByPostId(Integer postId);
+
 }

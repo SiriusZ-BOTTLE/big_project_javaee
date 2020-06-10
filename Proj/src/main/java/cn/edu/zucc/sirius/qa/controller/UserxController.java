@@ -81,7 +81,7 @@ public class UserxController {
         RequestResult res=new RequestResult();
         UserxStatistics stat=new UserxStatistics();
 
-        stat.setPostNumber(ArticleController.repository.countByCreatorId(userId));
+        stat.setPostNumber(ArticleController.repository.countByCreatorId(userId)+PostController.postRepository.countByCreatorId(userId));
         stat.setFollowNumber(MapUserUserFollowingController.repository.countByUserId0(userId));
         stat.setFollowedNumber(MapUserUserFollowingController.repository.countByUserId1(userId));
 
