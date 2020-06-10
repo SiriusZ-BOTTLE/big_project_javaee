@@ -67,7 +67,7 @@ public interface PostRepository extends JpaRepository<PostEntity, Integer> {
         nativeQuery = true,
         value="SELECT * FROM post WHERE MATCH (post_title,post_content) AGAINST (:content IN NATURAL LANGUAGE MODE)"
     )
-    Page<PostEntity> findAllByContentMatch(String content,Pageable pageable);
+    Page<PostEntity> findAllByContentMatch(@Param("content") String content,Pageable pageable);
 
 
 
