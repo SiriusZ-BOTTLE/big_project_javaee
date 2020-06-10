@@ -8,7 +8,9 @@ spring:
       max-request-size: 10MB
 
   datasource:
-    url: jdbc:mysql://localhost/db_big_pro_javaee
+    url: jdbc:mysql://localhost/db_big_pro_javaee?serverTimezone=GMT%2b8
     username: root
     password: 18487997
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    time-zone: GMT+8

@@ -58,7 +58,7 @@ public interface PostRepository extends JpaRepository<PostEntity, Integer> {
     Page<PostEntity> findAllByOrderByUpdateDateDesc(Pageable pageable);
 
     /**
-     * 全文索引查询
+     * 全文索引模糊查询
      * @param pageable
      * @return
      */

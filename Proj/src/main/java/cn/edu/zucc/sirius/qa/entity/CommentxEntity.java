@@ -15,7 +15,7 @@ public class CommentxEntity {
     private String commentContent;
     private String creatorId;
     private Integer replyId;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Timestamp createDate;
 
     @Id

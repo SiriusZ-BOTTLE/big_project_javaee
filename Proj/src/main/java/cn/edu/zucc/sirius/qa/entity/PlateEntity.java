@@ -14,7 +14,7 @@ public class PlateEntity {
     private String ownerId;
     private String plateDescription;
     private String plateCoverUrl;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Timestamp createDate;
     private Byte activated;
 
