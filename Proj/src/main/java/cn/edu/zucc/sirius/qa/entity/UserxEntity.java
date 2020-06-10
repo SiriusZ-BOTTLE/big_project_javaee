@@ -113,12 +113,13 @@ public class UserxEntity {
 
     @Basic
     @CreationTimestamp
-    @Column(name = "register_date")
+    @Column(name = "register_date",updatable = false)
     public Timestamp getRegisterDate() {
         return registerDate;
     }
 
     @CreationTimestamp
+    @Column(name = "register_date",updatable = false)
     public void setRegisterDate(Timestamp registerDate) {
         this.registerDate = registerDate;
     }
