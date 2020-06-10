@@ -36,7 +36,7 @@ public class MapUserPlateCollectionController {
         return res;
     }
 
-    //列出所有订阅
+    //列出所有订阅ID号
     @PostMapping("/map_user_plate_collection/list")
     public RequestResult list(@RequestParam String userId)
     {

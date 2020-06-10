@@ -52,4 +52,12 @@ public class PlateController {
         return res;
     }
 
+    @PostMapping("/plate/get")
+    public RequestResult get(@RequestParam Integer plateId)
+    {
+        RequestResult res=new RequestResult();
+        res.setObject(plateRepository.findByPlateId(plateId));
+        res.setSuccess(true);
+        return res;
+    }
 }

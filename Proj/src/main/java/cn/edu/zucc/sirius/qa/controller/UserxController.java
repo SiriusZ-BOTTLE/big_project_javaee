@@ -65,6 +65,17 @@ public class UserxController {
         return res;
     }
 
+    @PostMapping("/user/update")
+    RequestResult update(@RequestBody UserxEntity user)
+    {
+        RequestResult res=new RequestResult();
+
+        UserxEntity userxEntity=repository.save(user);
+        res.setSuccess(true);
+        res.setObject(userxEntity);
+        return res;
+    }
+
     @PostMapping("/user/get_statistics")
     RequestResult getUserStatistics(@RequestParam String userId){
         RequestResult res=new RequestResult();

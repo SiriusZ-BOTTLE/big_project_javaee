@@ -97,13 +97,13 @@ public class PostEntity {
     }
 
     @Basic
-    @UpdateTimestamp
+    @CreationTimestamp
     @Column(name = "update_date")
     public Timestamp getUpdateDate() {
         return updateDate;
     }
 
-    @UpdateTimestamp
+    @CreationTimestamp
     public void setUpdateDate(Timestamp updateDate) {
         this.updateDate = updateDate;
     }

@@ -1,5 +1,6 @@
 package cn.edu.zucc.sirius.qa.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class CommentxEntity {
     private String commentContent;
     private String creatorId;
     private Integer replyId;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GTM+8")
     private Timestamp createDate;
 
     @Id

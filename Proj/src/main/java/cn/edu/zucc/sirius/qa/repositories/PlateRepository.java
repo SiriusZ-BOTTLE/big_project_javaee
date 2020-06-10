@@ -23,4 +23,12 @@ public interface PlateRepository extends JpaRepository<PlateEntity, Integer> {
     )
     List<PlateEntity> findUserSubscription(@Param("userId") String userId);
 
+    /**
+     * 查询信息
+     * @param plateId 主键
+     * @return 对象
+     */
+    PlateEntity findByPlateId(Integer plateId);
+
+
 }

@@ -17,8 +17,15 @@ import java.util.UUID;
 @CrossOrigin
 public class FileController {
 
+//    @Value("${prop.upload-folder}")
+    private static String UPLOAD_FOLDER;
+
+    //静态变量的设置方案
     @Value("${prop.upload-folder}")
-    private String UPLOAD_FOLDER;
+    public void setUploadFolder(String value)
+    {
+        FileController.UPLOAD_FOLDER=value;
+    }
 
 
     @PostMapping("/upload")
@@ -63,6 +70,27 @@ public class FileController {
         }
         res.setSuccess(true);
         res.setObject(filename);//返回文件名称
+        return res;
+    }
+
+//    @PostMapping("/delete")
+    public static RequestResult delete(String imageName)
+    {
+        RequestResult res = new RequestResult();
+
+        //注: UPLOAD_FOLDER结尾有一个斜杠
+        String img_path = UPLOAD_FOLDER + imageName;
+        File file = new File(img_path);
+        if (file.exists())
+        {
+            //文件是否存在
+            if (file.delete())//存在就删, 返回true
+                res.setSuccess(true);
+            else
+                res.setSuccess(false);
+        }
+        else
+            res.setMsg("文件不存在");
         return res;
     }
 
